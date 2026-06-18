@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LuxeCart is a premium e-commerce capstone project built for Thiranex Web Development Internship Task 5." />
+  <title>LuxeCart | Full Stack E-Commerce Capstone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="LuxeCart Home"><span>Luxe</span>Cart</a>
+      <div class="nav-links" id="navLinks">
+        <a href="#products">Products</a>
+        <a href="#features">Features</a>
+        <a href="#dashboard">Admin</a>
+        <a href="#checkout">Checkout</a>
+      </div>
+      <div class="nav-actions">
+        <button class="ghost-btn" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+        <button class="cart-btn" id="openCart" aria-label="Open cart">Cart <span id="cartCount">0</span></button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">THIRANEX TASK 5 • FULL STACK CAPSTONE</p>
+        <h1>Premium E-Commerce Experience for Modern Digital Stores.</h1>
+        <p class="hero-text">LuxeCart combines product discovery, cart management, checkout flow, persistent state, and admin analytics into one polished capstone project.</p>
+        <div class="hero-actions">
+          <a href="#products" class="primary-btn">Explore Products</a>
+          <a href="#dashboard" class="secondary-btn">View Dashboard</a>
+        </div>
+        <div class="stats" aria-label="Store highlights">
+          <article><strong>12+</strong><span>Products</span></article>
+          <article><strong>4.8★</strong><span>Rating</span></article>
+          <article><strong>100%</strong><span>Responsive</span></article>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Featured product card">
+        <div class="badge">Best Seller</div>
+        <div class="product-visual">⌚</div>
+        <h2>Aura Smart Watch</h2>
+        <p>Elegant wearable with health tracking and premium design.</p>
+        <div class="price-row"><span>₹4,999</span><button data-id="1" class="add-btn">Add</button></div>
+      </div>
+    </section>
+
+    <section class="features container" id="features">
+      <article><span>🛒</span><h3>Smart Cart</h3><p>Quantity updates, remove items, subtotal, tax, and total calculation.</p></article>
+      <article><span>💾</span><h3>Persistent State</h3><p>Cart and theme preferences are saved using browser local storage.</p></article>
+      <article><span>📊</span><h3>Admin Insights</h3><p>Live dashboard cards summarize revenue, orders, and inventory.</p></article>
+      <article><span>🔍</span><h3>Search & Filter</h3><p>Dynamic product rendering with category and keyword filtering.</p></article>
+    </section>
+
+    <section class="shop container" id="products">
+      <div class="section-heading">
+        <p class="eyebrow">PRODUCT CATALOG</p>
+        <h2>Curated Products</h2>
+        <p>Search, filter, and add items to your cart with real-time JavaScript state updates.</p>
+      </div>
+      <div class="toolbar">
+        <input type="search" id="searchInput" placeholder="Search products..." aria-label="Search products" />
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All Categories</option>
+          <option value="tech">Tech</option>
+          <option value="fashion">Fashion</option>
+          <option value="home">Home</option>
+        </select>
+      </div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="dashboard container" id="dashboard">
+      <div class="section-heading">
+        <p class="eyebrow">ADMIN DASHBOARD</p>
+        <h2>Business Overview</h2>
+      </div>
+      <div class="dashboard-grid">
+        <article><span>Total Products</span><strong id="dashProducts">0</strong></article>
+        <article><span>Cart Revenue</span><strong id="dashRevenue">₹0</strong></article>
+        <article><span>Items in Cart</span><strong id="dashItems">0</strong></article>
+        <article><span>Avg. Rating</span><strong>4.8★</strong></article>
+      </div>
+    </section>
+
+    <section class="checkout container" id="checkout">
+      <div class="checkout-card">
+        <div>
+          <p class="eyebrow">CHECKOUT FLOW</p>
+          <h2>Ready to place an order?</h2>
+          <p>This demo validates form inputs and creates a mock order summary without collecting real payments.</p>
+        </div>
+        <form id="checkoutForm">
+          <input type="text" id="customerName" placeholder="Full Name" required />
+          <input type="email" id="customerEmail" placeholder="Email Address" required />
+          <input type="text" id="customerAddress" placeholder="Delivery Address" required />
+          <button class="primary-btn" type="submit">Place Demo Order</button>
+          <p id="orderMessage" class="order-message" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-panel">
+      <div class="cart-head"><h2>Your Cart</h2><button id="closeCart" aria-label="Close cart">×</button></div>
+      <div id="cartItems" class="cart-items"></div>
+      <div class="cart-summary">
+        <div><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+        <div><span>GST 18%</span><strong id="tax">₹0</strong></div>
+        <div class="total"><span>Total</span><strong id="total">₹0</strong></div>
+      </div>
+      <a href="#checkout" class="primary-btn full" id="checkoutLink">Continue Checkout</a>
+    </div>
+  </aside>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Built by Aadhi D for Thiranex Web Development Internship Task 5.</p>
+      <p>HTML • CSS • JavaScript • Local Storage • Responsive UI</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
