@@ -63,6 +63,10 @@ This project is designed to feel like a real digital commerce product rather tha
 - Dashboard analytics simulation
 - E-commerce checkout flow
 
+## Live Demo
+
+Portfolio Website: https://thiranex-task-5-ecommerce-capstone.vercel.app/
+
 ## Repository Purpose
 
 This repository was created specifically for the Thiranex Web Development Internship Program as the final capstone task submission.
